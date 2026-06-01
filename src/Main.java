@@ -16,74 +16,91 @@ public class Main {
     }
 
     private static void login() {
-
         System.out.print("Enter Username: ");
         String username = sc.nextLine();
 
         System.out.print("Enter Password: ");
         String password = sc.nextLine();
 
-        // Admin Login
         if (username.equals("admin") && password.equals("admin123")) {
-
             System.out.println("\nLogin Successful!");
             System.out.println("Welcome Admin");
-
-            adminMenu();
-
-        }
-        // Customer Login
-        else if (username.equals("customer") && password.equals("cust123")) {
-
+            bankMenu();
+        } else if (username.equals("customer") && password.equals("cust123")) {
             System.out.println("\nLogin Successful!");
             System.out.println("Welcome Customer");
-
-        }
-        // Invalid Login
-        else {
-
+            bankMenu();
+        } else {
             System.out.println("\nInvalid Username or Password");
-
         }
     }
 
-    private static void adminMenu() {
-
+    private static void bankMenu() {
         int choice;
 
         do {
-
-            System.out.println("\n===== ADMIN MENU =====");
-            System.out.println("1. Add Customer");
-            System.out.println("2. Delete Customer");
-            System.out.println("3. View Customers");
-            System.out.println("0. Logout");
-
+            System.out.println("\n===== BANK MENU =====");
+            System.out.println("1. Create Account");
+            System.out.println("2. View All Accounts");
+            System.out.println("3. Deposit");
+            System.out.println("4. Withdraw");
+            System.out.println("5. Transfer");
+            System.out.println("6. Close Account");
+            System.out.println("7. Exit");
             System.out.print("Enter Choice: ");
+
             choice = sc.nextInt();
 
             switch (choice) {
-
                 case 1:
-                    System.out.println("Add Customer Selected");
+                    createAccount();
                     break;
-
                 case 2:
-                    System.out.println("Delete Customer Selected");
+                    viewAllAccounts();
                     break;
-
                 case 3:
-                    System.out.println("View Customers Selected");
+                    deposit();
                     break;
-
-                case 0:
-                    System.out.println("Logging Out...");
+                case 4:
+                    withdraw();
                     break;
-
+                case 5:
+                    transfer();
+                    break;
+                case 6:
+                    closeAccount();
+                    break;
+                case 7:
+                    System.out.println("Exiting System...");
+                    break;
                 default:
-                    System.out.println("Invalid Choice");
+                    System.out.println("Invalid Choice.");
             }
 
-        } while (choice != 0);
+        } while (choice != 7);
+    }
+
+    private static void createAccount() {
+        System.out.println("\nCreate Account Selected");
+    }
+
+    private static void viewAllAccounts() {
+        System.out.println("\nView All Accounts Selected");
+    }
+
+    private static void deposit() {
+        System.out.println("\nDeposit Selected");
+    }
+
+    private static void withdraw() {
+        System.out.println("\nWithdraw Selected");
+    }
+
+    private static void transfer() {
+        System.out.println("\nTransfer Selected");
+    }
+
+    private static void closeAccount() {
+        System.out.println("\nClose Account Selected");
     }
 }
