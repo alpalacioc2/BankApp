@@ -1,42 +1,34 @@
-/*
- * Customer.java
- *
- * Purpose:
- * Represents a customer in the banking system.
- *
- * Each customer contains:
- * - Customer ID
- * - Customer Name
- * - Customer Email
- * - List of associated bank accounts
- *
- * This class is used for storing customer information
- * and returning customer data through the REST API.
- */
-
 package com.example.bankingapi.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private String email;
-    private List<Account> accounts;
 
     public Customer() {
-        accounts = new ArrayList<>();
     }
 
-    public Customer(int id, String name, String email, List<Account> accounts) {
+    public Customer(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.accounts = accounts;
     }
-    //getter and setter for each
+
+    public Customer(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -44,6 +36,7 @@ public class Customer {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getName() {
         return name;
@@ -59,13 +52,5 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
     }
 }
