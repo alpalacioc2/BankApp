@@ -1,16 +1,120 @@
-# React + Vite
+# React Frontend Integration Branch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This branch introduces the initial React frontend setup for the BankApp project. The frontend is being developed using React and Vite to create a modern user interface that will eventually integrate with the existing Spring Boot REST API backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The purpose of this branch is to establish the frontend development environment, project structure, and initial API communication setup before merging into a future full-stack integration branch.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+### Frontend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* Vite
+* Axios
+* JavaScript
+* CSS
+
+### Backend Integration Target
+
+* Spring Boot REST API
+* Spring Data JPA
+* Hibernate
+* MySQL
+
+---
+
+## Current Features
+
+* React frontend environment configured using Vite
+* Project structure organized for scalable frontend development
+* Axios configured for backend API communication
+* Initial API integration with customer endpoints
+* Development server configured with hot reload support
+* Basic frontend verification and rendering completed
+
+---
+
+## Project Structure
+
+```text
+react-frontend-bankapp/
+├── public/
+├── src/
+│   ├── api/
+│   │   └── customerApi.js
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## API Integration
+
+The frontend is configured to communicate with the Spring Boot backend running on:
+
+```text
+http://localhost:8080
+```
+
+Current endpoint integration:
+
+```text
+GET /api/customers
+POST /api/customers
+```
+
+Axios is used to manage HTTP requests between the React frontend and Spring Boot backend.
+
+---
+
+## Running the Frontend
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Development Goals
+
+Upcoming goals for future integration:
+
+* Customer dashboard UI
+* Account management pages
+* Transaction display components
+* Authentication and login flow
+* Full CRUD operations
+* Improved frontend styling and responsiveness
+* Complete React + Spring Boot full-stack integration
+
+---
+
+## Notes
+
+This branch focuses only on frontend setup and early backend communication. Full-stack integration and advanced UI development will continue in future branches.
